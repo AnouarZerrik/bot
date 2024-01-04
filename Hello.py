@@ -50,9 +50,12 @@ def handle_photo(message):
     image = Image.open(f"{file_id}.png")
 
     if message.caption is not None:
+        try :  
           response = model.generate_content([message.caption,image] , stream=False)
           response.resolve()
           bot.reply_to(message, response.text )
+        except :
+           bot.reply_to(message, 'That Don\'t Work ' )
     else :
       bot.reply_to(message, 'Add the caption of this image' )
 
@@ -84,7 +87,7 @@ def handle_audio(message):
         new_file.write(downloaded_file)
 
 
-    result = model_wis.transcribe(f"{file_id}.ogg" ,   fp16=False)
+    result = model_wis.transcribe(f"{file_id}.ogg" , fp16=False)
     #print(result['text'])
 
     inputs = [
