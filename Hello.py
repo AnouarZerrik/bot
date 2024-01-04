@@ -17,7 +17,7 @@ def run(model, inputs):
     response = requests.post(f"{API_BASE_URL}{model}", headers=headers, json=input)
     return response.json()
 
-
+#AIzaSyBLdPt9xCo9Ia1vpBuxfCl9EMq0FqXByyI
 genai.configure(api_key='AIzaSyDFhHVMffSOLAqqHg7MeZE_Bcp5xtnjxs4')
 model = genai.GenerativeModel('gemini-pro-vision')
 
