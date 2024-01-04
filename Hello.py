@@ -18,7 +18,7 @@ def run(model, inputs):
     return response.json()
 
 
-genai.configure(api_key='AIzaSyBLdPt9xCo9Ia1vpBuxfCl9EMq0FqXByyI')
+genai.configure(api_key='AIzaSyDFhHVMffSOLAqqHg7MeZE_Bcp5xtnjxs4')
 model = genai.GenerativeModel('gemini-pro-vision')
 
 # Replace 'YOUR_BOT_TOKEN' with the actual token you get from BotFather on Telegram
