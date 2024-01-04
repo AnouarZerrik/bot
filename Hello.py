@@ -106,4 +106,5 @@ def handle_audio(message):
 
 
 if __name__ == "__main__":
+    print('listning ...')
     bot.polling(none_stop=True)
