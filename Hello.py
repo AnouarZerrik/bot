@@ -44,10 +44,10 @@ def handle_photo(message):
     #response = model.generate_content(['Give me descrption of this image',image])
 
     # Save the photo locally (you can customize the file name)
-    with open(f"/media/{file_id}.png", 'wb') as new_file:
+    with open(f"{file_id}.png", 'wb') as new_file:
        new_file.write(downloaded_file)
 
-    image = Image.open(f"/media/{file_id}.png")
+    image = Image.open(f"{file_id}.png")
 
     if message.caption is not None:
         try :
@@ -59,7 +59,7 @@ def handle_photo(message):
     else :
       bot.reply_to(message, 'Add the caption of this image' )
 
-    os.remove(f"/media/{file_id}.png")
+    os.remove(f"{file_id}.png")
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
@@ -83,11 +83,11 @@ def handle_audio(message):
     downloaded_file = bot.download_file(file_info.file_path)
 
     # Save the audio locally (you can customize the file name and extension)
-    with open(f"/media/{file_id}.ogg", 'wb') as new_file:
+    with open(f"{file_id}.ogg", 'wb') as new_file:
         new_file.write(downloaded_file)
 
 
-    result = model_wis.transcribe(f"/media/{file_id}.ogg" , fp16=False)
+    result = model_wis.transcribe(f"{file_id}.ogg" , fp16=False)
     #print(result['text'])
 
     inputs = [
@@ -102,7 +102,7 @@ def handle_audio(message):
     except:
       bot.reply_to(message, result['text'])
 
-    os.remove(f"/media/{file_id}.ogg")
+    os.remove(f"{file_id}.ogg")
 
 
 if __name__ == "__main__":
