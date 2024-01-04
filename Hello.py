@@ -50,12 +50,9 @@ def handle_photo(message):
     image = Image.open(f"{file_id}.png")
 
     if message.caption is not None:
-        try :
           response = model.generate_content([message.caption,image] , stream=False)
           response.resolve()
           bot.reply_to(message, response.text )
-        except :
-          bot.reply_to(message, 'Do that again!! ' )
     else :
       bot.reply_to(message, 'Add the caption of this image' )
 
