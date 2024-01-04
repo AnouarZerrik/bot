@@ -87,7 +87,7 @@ def handle_audio(message):
         new_file.write(downloaded_file)
 
 
-    result = model_wis.transcribe(f"{file_id}.ogg")
+    result = model_wis.transcribe(f"{file_id}.ogg" ,   fp16=False)
     #print(result['text'])
 
     inputs = [
